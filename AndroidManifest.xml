@@ -16,7 +16,13 @@
         <activity
             android:name="com.xj.mobileprotecter.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+         
+        </activity>
+        <activity
+            android:name="com.xj.mobileprotecter.activity.SplashActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:label="@string/title_activity_splash" >
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
