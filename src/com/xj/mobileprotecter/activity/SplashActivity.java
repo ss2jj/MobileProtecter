@@ -1,8 +1,15 @@
 package com.xj.mobileprotecter.activity;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import com.xj.mobileprotecter.R;
 import com.xj.mobileprotecter.R.layout;
 import com.xj.mobileprotecter.R.menu;
+import com.xj.mobileprotecter.utils.StreamTools;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -20,6 +27,34 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		initView();
+		checkUpdate();
+	}
+	
+	/*
+	 * ÁªÍø¼ì²éÉý¼¶
+	 */
+	private void checkUpdate() {
+		// TODO Auto-generated method stub
+		try {
+			URL url = new URL(getString(R.string.server_url));
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("GET");
+			con.setConnectTimeout(4000);
+			int code = con.getResponseCode();
+			if(code == 200)	{
+				InputStream is = con.getInputStream();
+				String updateInfo = StreamTools.readFromStream(is);
+			}
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	private void initView()	{
