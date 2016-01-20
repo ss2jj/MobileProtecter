@@ -6,4 +6,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_splash">SplashActivity</string>
 	<string name="app_title">手机守卫者</string>
+	<string name="update_dialog_title">新版本更新</string>
+	<string name="update_dialog_message">检测到新版本  请及时更新</string>
+	<string name="update_dialog_ok">确认下载</string>
+	<string name="update_dialog_cancel">下次再说</string>
+	
+	
 </resources>
