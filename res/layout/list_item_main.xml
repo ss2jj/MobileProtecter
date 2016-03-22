@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xj.mobileprotecter.widget.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/item_main_shape" >
+    
+    <ImageView android:id="@+id/iv_item_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_launcher"/>
+
+    <TextView    
+        android:layout_below="@id/iv_item_back"
+         android:id="@+id/iv_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  
+        />
+</com.xj.mobileprotecter.widget.SquareLayout>

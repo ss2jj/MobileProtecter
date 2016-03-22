@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.xj.mobileprotecter"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+     <TextView android:id="@+id/tv_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="@string/setting_title"/>
+     
+    <com.xj.mobileprotecter.widget.SettingsLayout 
+        android:id="@+id/setting_update"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    settings:title="@string/update_title"
+    settings:content_checked="@string/update_content_open"
+    settings:content_unchecked="@string/update_content_close"
+    android:layout_marginTop="50dp">
+	</com.xj.mobileprotecter.widget.SettingsLayout>
+</RelativeLayout>

@@ -23,6 +23,7 @@ import android.os.Message;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -98,6 +99,7 @@ public class SplashActivity extends Activity {
 						startService(intent);
 					}
 					dialog.dismiss();
+					enterMain();
 				}
 			})
 			.setNegativeButton(R.string.update_dialog_cancel, new OnClickListener() {
@@ -106,6 +108,7 @@ public class SplashActivity extends Activity {
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
 					dialog.dismiss();
+					enterMain();
 				}
 			}).create();
 		dialog.setCancelable(false);
@@ -126,7 +129,12 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.activity_splash);
 		initView();
 		if(Util.checkNetwork(this))	{
-			checkUpdate();
+			if(getSharedPreferences("setting", Context.MODE_PRIVATE).getBoolean("auto_update", false))	{
+				checkUpdate();
+			}
+			else {
+				mHandler.sendEmptyMessageDelayed(ConstUtil.ENTER_MAIN, 2000);
+			}
 		}else {
 			mHandler.sendEmptyMessage(ConstUtil.SHOW_NETWORK_ERROR);
 		}
@@ -171,8 +179,8 @@ public class SplashActivity extends Activity {
 
 					} else {
 						// 请求不成功
-						//msg.what = ConstUtil.SHOW_NETWORK_ERROR;
-						msg.what = ConstUtil.SHOW_UPDATE_DIALOG;
+						msg.what = ConstUtil.SHOW_NETWORK_ERROR;
+						//msg.what = ConstUtil.SHOW_UPDATE_DIALOG;
 
 					}
 
