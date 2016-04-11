@@ -43,8 +43,8 @@ private SharedPreferences sp = null;
 	private void initView() {
 		// TODO Auto-generated method stub
 		gv_main = (GridView) findViewById(R.id.gv_main);
-		calcGVWidth();
-		gv_main.setAdapter(new MyAdatper());
+		calcGVWidth();//设置每个item的宽高 保持一致
+		gv_main.setAdapter(new MyAdatper()); //设置gridview的adapter
 		gv_main.setOnItemClickListener(new MyItemClickListener());
 		
 	}
@@ -150,6 +150,7 @@ private SharedPreferences sp = null;
 				
 				if(Util.md5(inputPwd).equals(savePwd))	{
 					Toast.makeText(MainActivity.this, "密码一致", 500).show();
+					startActivity(new Intent(MainActivity.this, SetUpOneActivity.class));
 					//return ;
 				}else {
 					Toast.makeText(MainActivity.this, "密码错误", 500).show();

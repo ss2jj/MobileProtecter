@@ -29,10 +29,10 @@ private SharedPreferences sp;
 	private void intiView() {
 		update_setting = (SettingsLayout) findViewById(R.id.setting_update);
 		if(sp.getBoolean("auto_update", false))	{
-			update_setting.setChechBox(true);
+			update_setting.setCheckBox(true);
 		}else {
 			
-			update_setting.setChechBox(false);
+			update_setting.setCheckBox(false);
 		}
 		
 		update_setting.setOnClickListener(new MyOnClickListenter());
@@ -47,11 +47,11 @@ private SharedPreferences sp;
 				Editor editor = sp.edit();
 				if(update_setting.getCheckBox().isChecked())	{
 					
-					update_setting.setChechBox(false);
+					update_setting.setCheckBox(false);
 					editor.putBoolean("auto_update", false);
 				}else {
 					
-					update_setting.setChechBox(true);
+					update_setting.setCheckBox(true);
 					editor.putBoolean("auto_update", true);
 				}
 				editor.commit();

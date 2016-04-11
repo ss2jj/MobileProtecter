@@ -39,6 +39,18 @@
         <activity android:theme="@android:style/Theme.NoTitleBar"
             android:name="com.xj.mobileprotecter.activity.SettingActivity">
         </activity>
+        <activity android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.xj.mobileprotecter.activity.SetUpOneActivity">
+        </activity>
+        <activity android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.xj.mobileprotecter.activity.SetUpTwoActivity">
+        </activity>
+         <activity android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.xj.mobileprotecter.activity.SetUpThreeActivity">
+        </activity>
+         <activity android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.xj.mobileprotecter.activity.SetUpFourActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -59,7 +59,7 @@ public class SettingsLayout extends RelativeLayout{
 		return cb_box;
 	}
 	
-	public void setChechBox(boolean checked)	{
+	public void setCheckBox(boolean checked)	{
 		cb_box.setChecked(checked);
 		if(checked)	{
 			tv_content.setText(content_checked);
