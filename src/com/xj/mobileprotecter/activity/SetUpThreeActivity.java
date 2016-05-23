@@ -31,7 +31,11 @@ public class SetUpThreeActivity extends Activity {
 	public void next(View view)	{
 		startActivity(new Intent(SetUpThreeActivity.this,SetUpFourActivity.class));
 		finish();
+		overridePendingTransition(R.anim.activity_pre_ani, R.anim.activity_next_ani);
 	}
-	
+	public void previ(View view)	{
+		startActivity(new Intent(SetUpThreeActivity.this,SetUpTwoActivity.class));
+		finish();
+	}
 
 }

@@ -51,6 +51,9 @@
          <activity android:theme="@android:style/Theme.NoTitleBar"
             android:name="com.xj.mobileprotecter.activity.SetUpFourActivity">
         </activity>
+         <activity android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.xj.mobileprotecter.activity.SetUpActivity">
+        </activity>
     </application>
 
 </manifest>

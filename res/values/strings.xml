@@ -28,6 +28,7 @@
 	<string name="setup1_op4">远程数据销毁</string>
 	<string name="setup1_op5">远程锁屏</string>
 	<string name="setup1_op6">下一步</string>
+	<string name="setup1_op7">上一步</string>
 	<string name="setup2_title">2手机卡绑定</string>
 	<string name="setup2_op1">通过SIM卡绑定:</string>
 	<string name="setup2_op2">重启手机时SIM卡发生变化将发送报警短信</string>

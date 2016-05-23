@@ -32,6 +32,7 @@ public class SetUpOneActivity extends Activity {
 	public void next(View view)	{
 		startActivity(new Intent(SetUpOneActivity.this,SetUpTwoActivity.class));
 		finish();
+		overridePendingTransition(R.anim.activity_pre_ani, R.anim.activity_next_ani);
 	}
 	
 

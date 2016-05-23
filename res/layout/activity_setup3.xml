@@ -95,6 +95,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
          android:onClick="next"
+           android:background="@drawable/button_back"
+        android:drawableRight="@drawable/next"
         android:text="@string/setup1_op6" />
-
+  <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+         android:onClick="previ"
+          android:background="@drawable/button_back"
+        android:drawableLeft="@drawable/previous"
+        android:text="@string/setup1_op7" />
 </RelativeLayout>
