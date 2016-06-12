@@ -37,6 +37,7 @@
        <Button   android:id="@+id/bt_choose"
            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="seletContact"
             android:text="@string/setup3_op2"/>
        
     </LinearLayout>

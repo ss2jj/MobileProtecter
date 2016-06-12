@@ -15,6 +15,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 public class SetUpTwoActivity extends Activity {
 private SettingsLayout sl;
@@ -58,6 +59,10 @@ private SharedPreferences sp;
 	}
 	
 	public void next(View view)	{
+		if(TextUtils.isEmpty(sp.getString("serino", "")))	{
+			Toast.makeText(this, "«Îœ»∞Û∂®SIMø®", 500).show();
+			//return ;
+		}
 		startActivity(new Intent(SetUpTwoActivity.this,SetUpThreeActivity.class));
 		finish();
 		overridePendingTransition(R.anim.activity_pre_ani, R.anim.activity_next_ani);
