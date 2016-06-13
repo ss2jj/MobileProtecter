@@ -51,6 +51,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
     		android:onClick="reboot"
+    		android:clickable="true"
             android:text="@string/setup_op3" />
 
         <TextView
