@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 
 public class BootCompleteReceiver extends BroadcastReceiver {
@@ -18,10 +19,13 @@ private Context mContext;
 		sp = mContext.getSharedPreferences("config", Context.MODE_PRIVATE);
 		String seri = sp.getString("serino", "");
 		String localSeri = thm.getSimSerialNumber();
+		if(sp.getBoolean("protecting", false))	{
 		if(seri.equals(localSeri))	{
 			//sim卡没有变化
 		}else {
 			//sim卡变更 发短信通知
+			SmsManager.getDefault().sendTextMessage(sp.getString("safenumber", ""), null, "sim changing....", null, null);
+		}
 		}
 	}
 
