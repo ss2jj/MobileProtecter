@@ -2,6 +2,7 @@ package com.xj.mobileprotecter.receiver;
 
 
 import com.xj.mobileprotecter.R;
+import com.xj.mobileprotecter.service.GPSService;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,8 +10,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 public class SMSReceiver extends BroadcastReceiver {
 private  final String loaction = "#*location*#";
@@ -35,6 +38,14 @@ private  final String lockscreen = "#*lockscreen*#";
 			
 			if(sender.equals(safeNum))	{
 				if(loaction.equals(body))	{
+					arg0.startService(new Intent(arg0,GPSService.class));
+					String lastLocation = sp.getString("lastlocation", null);
+					if(TextUtils.isEmpty(lastLocation)){
+						//位置没有得到
+						SmsManager.getDefault().sendTextMessage(sender, null, "geting loaction.....", null, null);
+					}else{
+						SmsManager.getDefault().sendTextMessage(sender, null, lastLocation, null, null);
+					}
 					abortBroadcast();
 				}else if(alarm.equals(body))	{
 					MediaPlayer mp = MediaPlayer.create(arg0, R.raw.alarm);
