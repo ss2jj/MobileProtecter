@@ -7,9 +7,11 @@
 
      <TextView android:id="@+id/tv_title"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+       
         android:gravity="center"
         android:textSize="20sp"
+        android:layout_height="@dimen/title_height"
+          android:background="@color/blank_blue"
         android:text="@string/setting_title"/>
      
     <com.xj.mobileprotecter.widget.SettingsLayout 

@@ -8,9 +8,11 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+     
         android:gravity="center"
         android:text="@string/setup2_title"
+        android:layout_height="@dimen/title_height"
+          android:background="@color/blank_blue"
         android:textSize="20sp" />
 
     <LinearLayout

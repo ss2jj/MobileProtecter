@@ -55,6 +55,7 @@ private SharedPreferences sp = null;
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			// TODO Auto-generated method stub
+			Intent intent = null;
 			switch (arg2) {
 			case 0:
 				if(haveNoPwd())	{
@@ -63,8 +64,14 @@ private SharedPreferences sp = null;
 					showInputDialog();
 				}
 				break;
+				
+			case 6:
+				intent = new Intent(MainActivity.this,AdavancedToolsActivity.class);
+				startActivity(intent);
+				finish();
+				break;
 			case 7:
-				Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+				intent = new Intent(MainActivity.this,SettingActivity.class);
 				startActivity(intent);
 				finish();
 				break;

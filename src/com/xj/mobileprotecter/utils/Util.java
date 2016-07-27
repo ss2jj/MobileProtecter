@@ -1,7 +1,20 @@
 package com.xj.mobileprotecter.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -56,5 +69,29 @@ public class Util {
 		
 		
 		return sb.toString();
+	}
+	
+	/**
+	 * 发送post 请求
+	 *
+	 */
+	public static String sendHttpPost(String url, List<NameValuePair> params)	{
+		HttpClient client = new DefaultHttpClient();
+		HttpPost post = new HttpPost(url);
+		
+		
+		try {
+			post.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8)); //设置post 参数 以utf编码
+			HttpResponse response = client.execute(post);
+			
+			if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK)	{
+				return EntityUtils.toString(response.getEntity());
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
 	}
 }
