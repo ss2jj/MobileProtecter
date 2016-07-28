@@ -16,6 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -93,5 +95,20 @@ public class Util {
 			e.printStackTrace();
 		}
 		return "";
+	}
+	
+	/**
+	 * 校验某个服务是否还活着 
+	 * serviceName :传进来的服务的名称
+	 */
+	public static boolean isServiceRuning(Context context,String packageName)	{
+		ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+		List<android.app.ActivityManager.RunningServiceInfo> services = am.getRunningServices(100);
+		for(RunningServiceInfo serviceInfo : services)	{
+			if(serviceInfo.service.getClassName().equals(packageName))	{
+				return true;
+			}
+		}
+		return false;
 	}
 }

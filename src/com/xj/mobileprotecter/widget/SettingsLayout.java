@@ -43,6 +43,7 @@ public class SettingsLayout extends RelativeLayout{
 		content_checked = getResources().getString(attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/com.xj.mobileprotecter", "content_checked",0));
 		content_unchecked = getResources().getString(attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/com.xj.mobileprotecter", "content_unchecked",0));
 		tv_title.setText(title);
+		tv_content.setText(content_unchecked);
 	}
 
 	private void initView(Context context) {

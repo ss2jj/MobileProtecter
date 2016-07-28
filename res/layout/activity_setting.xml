@@ -23,4 +23,13 @@
     settings:content_unchecked="@string/update_content_close"
     android:layout_marginTop="50dp">
 	</com.xj.mobileprotecter.widget.SettingsLayout>
+	<com.xj.mobileprotecter.widget.SettingsLayout 
+        android:id="@+id/setting_ring_attention"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    settings:title="@string/attention_title"
+    settings:content_checked="@string/attention_content_open"
+    settings:content_unchecked="@string/attention_content_close"
+    android:layout_marginTop="100dp">
+	</com.xj.mobileprotecter.widget.SettingsLayout>
 </RelativeLayout>

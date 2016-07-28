@@ -9,14 +9,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:textSize="22sp"
-        android:text="@string/update_title"/>
+       />
     <TextView  android:id="@+id/update_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/update_title"
           android:textSize="12sp"
-        android:text="@string/update_content_close"/>
+        />
     <CheckBox android:id="@+id/update_box"
        android:clickable="false"
           android:layout_width="wrap_content"

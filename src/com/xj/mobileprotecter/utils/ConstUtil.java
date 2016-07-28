@@ -11,5 +11,6 @@ public static final int ENTER_MAIN = 4;
 public static final int SD_NOT_AVALIABLE = 5;
 public static final int DOWNLOAD_FINISH = 6;
 
+public static final String ADDRESS_FIND_URL = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo";
 
 }

@@ -44,7 +44,8 @@
         </service>
         <service android:name="com.xj.mobileprotecter.service.GPSService" >
         </service>
-
+		 <service android:name="com.xj.mobileprotecter.service.PhoneListernService" >
+        </service>
         <activity
             android:name="com.xj.mobileprotecter.activity.SettingActivity"
             android:theme="@android:style/Theme.NoTitleBar" >

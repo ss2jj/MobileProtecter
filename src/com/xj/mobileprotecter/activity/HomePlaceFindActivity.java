@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import com.xj.mobileprotecter.R;
 import com.xj.mobileprotecter.R.layout;
 import com.xj.mobileprotecter.R.menu;
+import com.xj.mobileprotecter.utils.ConstUtil;
 import com.xj.mobileprotecter.utils.Util;
 
 import android.os.Bundle;
@@ -27,7 +28,7 @@ import android.widget.Toast;
 public class HomePlaceFindActivity extends Activity {
 private EditText phoneNum;
 private TextView result;
-private static final String url = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo";
+//private static final String url = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo";
 private Handler handler = new Handler(){
 	
 	public void dispatchMessage(android.os.Message msg) {
@@ -68,7 +69,7 @@ private Handler handler = new Handler(){
 	    params.add(new BasicNameValuePair("userId", ""));
 	    new Thread()	{
 	    	public void run()	{
-	    		String result = Util.sendHttpPost(url, params);
+	    		String result = Util.sendHttpPost(ConstUtil.ADDRESS_FIND_URL, params);
 	    		if(!TextUtils.isEmpty(result))	{
 	    			Message message = new Message();
 	    			message.what = 1;
