@@ -64,7 +64,11 @@ private SharedPreferences sp = null;
 					showInputDialog();
 				}
 				break;
-				
+			case 1:
+				intent = new Intent(MainActivity.this,MessageProtectActvity.class);
+				startActivity(intent);
+				finish();
+				break;
 			case 6:
 				intent = new Intent(MainActivity.this,AdavancedToolsActivity.class);
 				startActivity(intent);
@@ -75,7 +79,7 @@ private SharedPreferences sp = null;
 				startActivity(intent);
 				finish();
 				break;
-
+			 
 			default:
 				break;
 			}

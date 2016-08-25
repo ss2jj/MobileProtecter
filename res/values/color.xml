@@ -2,4 +2,7 @@
 <resources>
     <color name="blank_white">#55C0C0C0</color>
      <color name="blank_blue">#551d6cd3</color>
+     <color name="blank_blue2">#551a5bc2</color>
+     	<color name="blue">#44a700</color>	
+     	<color name="yellow">#ffffaf</color>					
 </resources>

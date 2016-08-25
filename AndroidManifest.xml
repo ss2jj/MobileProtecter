@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -88,6 +88,10 @@
         </activity>
         <activity
             android:name="com.xj.mobileprotecter.activity.HomePlaceFindActivity"
+           android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.xj.mobileprotecter.activity.MessageProtectActvity"
            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
     </application>

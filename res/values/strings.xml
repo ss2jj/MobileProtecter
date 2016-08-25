@@ -59,4 +59,10 @@
     <string name="attention_title">来电提醒</string>
     <string name="attention_content_open">来电提醒已打开</string>
 	<string name="attention_content_close">来电提醒已关闭</string>
+	<string name="message_title">通讯卫士</string>
+	<string name="attention_add">添加</string>
+	<string name="title_blackname">请输入黑名单号码</string>
+	<string name="blackname_input">请输入黑名单号码</string>
+	<string name="phone_interpect">电话拦截</string>
+	<string name="message_interpect">短信拦截</string>
 </resources>

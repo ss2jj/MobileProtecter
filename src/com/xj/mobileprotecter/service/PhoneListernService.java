@@ -11,9 +11,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
+import android.provider.CalendarContract.Events;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +30,9 @@ public class PhoneListernService extends Service {
 private TelephonyManager tm = null;
 private String result;
 private View view = null;	
-private WindowManager wm = null;	
+private WindowManager wm = null;
+WindowManager.LayoutParams params;
+
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
@@ -67,16 +73,49 @@ private WindowManager wm = null;
 	private void myToast(String message)	{
 		view = View.inflate(getApplicationContext(), R.layout.my_toast, null);
 		TextView  tv = (TextView) view.findViewById(R.id.tv_show_message);
+		view.setOnTouchListener(new OnTouchListener() {
+			int startX;
+			int startY;
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					startX = (int) event.getRawX();
+					startY = (int) event.getRawY();
+					break;
+				case MotionEvent.ACTION_MOVE:
+					int newX = (int) event.getRawX();
+					int newY = (int) event.getRawY();
+					int dx = newX - startX;
+					int dy = newY -  startY;
+					params.x += dx;
+					params.y += dy;
+					wm.updateViewLayout(view, params);
+					startX = newX;
+					startY = newY;
+					break;
+				case MotionEvent.ACTION_UP:
+	
+					break;
+	
+				default:
+					break;
+				}
+				return true;
+			}
+		});
 		tv.setText(message);
-		WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+		 params = new WindowManager.LayoutParams();
 		
 		params.width =  WindowManager.LayoutParams.WRAP_CONTENT;
 		params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-		params.flags =  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+		params.flags =  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE 
 				| WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-		
+		params.gravity =  Gravity.TOP + Gravity.LEFT;
 		params.format = PixelFormat.TRANSLUCENT;
-		params.type = WindowManager.LayoutParams.TYPE_TOAST;
+		//具有电话优先级 可显示到锁屏界面 但不能获取焦点
+		params.type = WindowManager.LayoutParams.TYPE_PRIORITY_PHONE;
 		
 		wm.addView(view, params);
 	}
